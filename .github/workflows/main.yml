@@ -1,0 +1,18 @@
+name: discord-hourly-ping
+
+on:
+  schedule:
+    - cron: "0 * * * *"  # каждый час в 00 минут (UTC)
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send message to Discord
+        env:
+          WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          curl -H "Content-Type: application/json" \
+               -d '{"content":"Пинг! ⏰ Это сообщение приходит каждый час."}' \
+               "$WEBHOOK"
