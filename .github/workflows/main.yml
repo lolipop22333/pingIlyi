@@ -14,5 +14,5 @@ jobs:
           WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
           curl -H "Content-Type: application/json" \
-               -d '{"content":"Пинг! ⏰ Это сообщение приходит каждый час."}' \
+               -d '{"content":"<@531585753860538369> проснись и пой."}' \
                "$WEBHOOK"
